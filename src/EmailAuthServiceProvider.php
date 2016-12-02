@@ -2,7 +2,9 @@
 
 namespace BrianFaust\EmailAuth;
 
-class ServiceProvider extends \BrianFaust\ServiceProvider\ServiceProvider
+use BrianFaust\ServiceProvider\ServiceProvider;
+
+class EmailAuthServiceProvider extends ServiceProvider
 {
     /**
      * Bootstrap the application services.
