@@ -13,7 +13,7 @@ $ composer require faustbrian/laravel-email-authentication
 ## Usage
 
 ``` php
-To-Do...
+...
 ```
 
 ## Security
