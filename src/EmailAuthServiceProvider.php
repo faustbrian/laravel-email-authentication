@@ -9,6 +9,8 @@
  * file that was distributed with this source code.
  */
 
+declare(strict_types=1);
+
 namespace BrianFaust\EmailAuth;
 
 use BrianFaust\ServiceProvider\ServiceProvider;
@@ -18,7 +20,7 @@ class EmailAuthServiceProvider extends ServiceProvider
     /**
      * Bootstrap the application services.
      */
-    public function boot()
+    public function boot(): void
     {
         $this->publishConfig();
 
@@ -30,7 +32,7 @@ class EmailAuthServiceProvider extends ServiceProvider
     /**
      * Register the application services.
      */
-    public function register()
+    public function register(): void
     {
         parent::register();
 
@@ -42,7 +44,7 @@ class EmailAuthServiceProvider extends ServiceProvider
      *
      * @return string
      */
-    public function getPackageName()
+    public function getPackageName(): string
     {
         return 'email-authenticate';
     }

@@ -9,6 +9,8 @@
  * file that was distributed with this source code.
  */
 
+declare(strict_types=1);
+
 namespace BrianFaust\EmailAuth\Http\Controllers;
 
 use Auth;
@@ -45,7 +47,7 @@ class MailAuthController extends Controller
     /**
      * Create a new authentication controller instance.
      */
-    public function __construct()
+    public function __construct(): void
     {
         $this->middleware('guest', ['except' => 'logout']);
     }
