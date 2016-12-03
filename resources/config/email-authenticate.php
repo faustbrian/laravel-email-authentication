@@ -1,5 +1,14 @@
 <?php
 
+/*
+ * This file is part of Laravel E-Mail Authentication.
+ *
+ * (c) Brian Faust <hello@brianfaust.de>
+ *
+ * For the full copyright and license information, please view the LICENSE
+ * file that was distributed with this source code.
+ */
+
 return [
 
     /*
@@ -9,8 +18,8 @@ return [
     */
 
     'route' => [
-        'uri' => 'auth/email-authenticate/{token}',
-        'as' => 'auth.email-authenticate',
+        'uri'  => 'auth/email-authenticate/{token}',
+        'as'   => 'auth.email-authenticate',
         'uses' => 'BrianFaust\EmailAuth\Http\Controllers@authenticateEmail',
     ],
 
@@ -26,7 +35,7 @@ return [
         ],
 
         'models' => [
-            'user' => \App\User::class,
+            'user'        => \App\User::class,
             'email-login' => \BrianFaust\EmailAuth\EmailLogin::class,
         ],
     ],
@@ -49,7 +58,7 @@ return [
 
     'mail' => [
         'address' => null,
-        'name' => null,
+        'name'    => null,
         'subject' => 'Mail Authentication',
     ],
 

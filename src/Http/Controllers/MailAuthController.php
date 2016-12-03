@@ -1,15 +1,24 @@
 <?php
 
+/*
+ * This file is part of Laravel E-Mail Authentication.
+ *
+ * (c) Brian Faust <hello@brianfaust.de>
+ *
+ * For the full copyright and license information, please view the LICENSE
+ * file that was distributed with this source code.
+ */
+
 namespace BrianFaust\EmailAuth\Http\Controllers;
 
-use Validator;
-use Illuminate\Foundation\Auth\ThrottlesLogins;
-use Illuminate\Foundation\Auth\AuthenticatesAndRegistersUsers;
+use Auth;
 use BrianFaust\EmailAuth\EmailLogin;
 use BrianFaust\EmailAuth\Http\Requests\EmailLoginRequest;
-use Mail;
-use Auth;
+use Illuminate\Foundation\Auth\AuthenticatesAndRegistersUsers;
+use Illuminate\Foundation\Auth\ThrottlesLogins;
 use Illuminate\Routing\Controller;
+use Mail;
+use Validator;
 
 class MailAuthController extends Controller
 {
@@ -98,7 +107,7 @@ class MailAuthController extends Controller
     protected function validator(array $data)
     {
         return Validator::make($data, [
-            'name' => 'required|max:255',
+            'name'  => 'required|max:255',
             'email' => 'required|email|max:255|unique:users',
         ]);
     }
@@ -116,7 +125,7 @@ class MailAuthController extends Controller
         $user = new $user();
 
         return $user->create([
-            'name' => $data['name'],
+            'name'  => $data['name'],
             'email' => $data['email'],
         ]);
     }
