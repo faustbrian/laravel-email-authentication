@@ -56,7 +56,7 @@ class MailAuthController extends Controller
     /**
      * Create a new authentication controller instance.
      */
-    public function __construct(): void
+    public function __construct()
     {
         $this->middleware('guest', ['except' => 'logout']);
     }
