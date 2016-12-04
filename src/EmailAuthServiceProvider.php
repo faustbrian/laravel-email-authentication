@@ -22,9 +22,9 @@ declare(strict_types=1);
 
 namespace BrianFaust\EmailAuth;
 
-use BrianFaust\ServiceProvider\ServiceProvider;
+use BrianFaust\ServiceProvider\AbstractServiceProvider;
 
-class EmailAuthServiceProvider extends ServiceProvider
+class EmailAuthServiceProvider extends AbstractServiceProvider
 {
     /**
      * Bootstrap the application services.
