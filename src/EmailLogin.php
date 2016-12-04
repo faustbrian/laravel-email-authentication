@@ -22,18 +22,20 @@ declare(strict_types=1);
 
 namespace BrianFaust\EmailAuth;
 
+use Illuminate\Database\Eloquent\Relations\HasOne;
+
 class EmailLogin extends Model
 {
     public $fillable = ['email', 'token'];
 
-    public function user()
+    public function user(): HasOne
     {
         return $this->hasOne(
             config('email-authenticate.database.models.user'), 'email', 'email'
         );
     }
 
-    public static function createForEmail($email)
+    public static function createForEmail($email): self
     {
         return self::create([
             'email' => $email,
@@ -41,7 +43,7 @@ class EmailLogin extends Model
         ]);
     }
 
-    public static function validFromToken($token)
+    public static function validFromToken($token): self
     {
         $expiresAfter = Carbon::parse(config('email-authenticate.lifetime'));
 
