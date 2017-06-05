@@ -107,7 +107,7 @@ class MailAuthController extends Controller
     protected function validator(array $data)
     {
         return Validator::make($data, [
-            'name' => 'required|max:255',
+            'name'  => 'required|max:255',
             'email' => 'required|email|max:255|unique:users',
         ]);
     }
@@ -125,7 +125,7 @@ class MailAuthController extends Controller
         $user = new $user();
 
         return $user->create([
-            'name' => $data['name'],
+            'name'  => $data['name'],
             'email' => $data['email'],
         ]);
     }
