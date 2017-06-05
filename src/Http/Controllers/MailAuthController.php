@@ -1,8 +1,5 @@
 <?php
 
-
-declare(strict_types=1);
-
 /*
  * This file is part of Laravel E-Mail Authentication.
  *
@@ -64,20 +61,20 @@ class MailAuthController extends Controller
     {
         $emailLogin = EmailLogin::createForEmail($request->input('email'));
 
-        $url = route(config('email-authenticate.route.as'), [
+        $url = route(config('laravel-email-authenticate.route.as'), [
             'token' => $emailLogin->token,
         ]);
 
-        Mail::send(config('email-authenticate.views.login'), [
+        Mail::send(config('laravel-email-authenticate.views.login'), [
             'url' => $url,
         ], function ($m) use ($request) {
             $m->from(
-                config('email-authenticate.mail.address'),
-                config('email-authenticate.mail.name')
+                config('laravel-email-authenticate.mail.address'),
+                config('laravel-email-authenticate.mail.name')
             );
 
             $m->to($request->input('email'))->subject(
-                config('email-authenticate.mail.subject')
+                config('laravel-email-authenticate.mail.subject')
             );
         });
 
@@ -110,7 +107,7 @@ class MailAuthController extends Controller
     protected function validator(array $data)
     {
         return Validator::make($data, [
-            'name'  => 'required|max:255',
+            'name' => 'required|max:255',
             'email' => 'required|email|max:255|unique:users',
         ]);
     }
@@ -124,11 +121,11 @@ class MailAuthController extends Controller
      */
     protected function create(array $data)
     {
-        $user = config('email-authenticate.database.models.user');
+        $user = config('laravel-email-authenticate.database.models.user');
         $user = new $user();
 
         return $user->create([
-            'name'  => $data['name'],
+            'name' => $data['name'],
             'email' => $data['email'],
         ]);
     }

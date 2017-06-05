@@ -9,7 +9,7 @@
  * file that was distributed with this source code.
  */
 
-Route::get(config('email-authenticate.route.uri'), [
-    'as'   => config('email-authenticate.route.as'),
-    'uses' => config('email-authenticate.route.uses'),
+Route::get(config('laravel-email-authenticate.route.uri'), [
+    'as' => config('laravel-email-authenticate.route.as'),
+    'uses' => config('laravel-email-authenticate.route.uses'),
 ]);

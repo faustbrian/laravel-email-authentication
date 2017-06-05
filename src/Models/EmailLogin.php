@@ -1,8 +1,5 @@
 <?php
 
-
-declare(strict_types=1);
-
 /*
  * This file is part of Laravel E-Mail Authentication.
  *
@@ -12,7 +9,7 @@ declare(strict_types=1);
  * file that was distributed with this source code.
  */
 
-namespace BrianFaust\EmailAuth;
+namespace BrianFaust\EmailAuth\Models;
 
 use Illuminate\Database\Eloquent\Relations\HasOne;
 
@@ -23,7 +20,7 @@ class EmailLogin extends Model
     public function user(): HasOne
     {
         return $this->hasOne(
-            config('email-authenticate.database.models.user'), 'email', 'email'
+            config('laravel-email-authenticate.database.models.user'), 'email', 'email'
         );
     }
 
@@ -37,7 +34,7 @@ class EmailLogin extends Model
 
     public static function validFromToken($token): self
     {
-        $expiresAfter = Carbon::parse(config('email-authenticate.lifetime'));
+        $expiresAfter = Carbon::parse(config('laravel-email-authenticate.lifetime'));
 
         return self::where('token', $token)
             ->where('created_at', '>', $expiresAfter)

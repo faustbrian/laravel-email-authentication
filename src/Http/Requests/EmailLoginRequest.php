@@ -1,8 +1,5 @@
 <?php
 
-
-declare(strict_types=1);
-
 /*
  * This file is part of Laravel E-Mail Authentication.
  *
@@ -35,7 +32,7 @@ class EmailLoginRequest extends FormRequest
      */
     public function rules()
     {
-        $usersTable = config('email-authenticate.database.users');
+        $usersTable = config('laravel-email-authenticate.database.users');
 
         return [
             'email' => 'required|email|exists:'.$usersTable,

@@ -1,8 +1,5 @@
 <?php
 
-
-declare(strict_types=1);
-
 /*
  * This file is part of Laravel E-Mail Authentication.
  *
@@ -14,39 +11,33 @@ declare(strict_types=1);
 
 namespace BrianFaust\EmailAuth;
 
-use BrianFaust\ServiceProvider\AbstractServiceProvider;
+use Illuminate\Support\ServiceProvider;
 
-class EmailAuthServiceProvider extends AbstractServiceProvider
+class EmailAuthServiceProvider extends ServiceProvider
 {
     /**
      * Bootstrap the application services.
      */
-    public function boot(): void
+    public function boot()
     {
-        $this->publishConfig();
+        $this->publishes([
+            __DIR__.'/../config/laravel-email-auth.php' => config_path('laravel-email-auth.php'),
+        ], 'config');
 
-        $this->publishMigrations();
+        $this->publishes([
+            __DIR__.'/../database/migrations' => database_path('migrations'),
+        ], 'migrations');
 
-        $this->loadViews();
+        $this->loadViewsFrom(__DIR__.'/../resources/views', 'laravel-email-auth');
     }
 
     /**
      * Register the application services.
      */
-    public function register(): void
+    public function register()
     {
-        parent::register();
+        $this->mergeConfigFrom(__DIR__.'/../config/laravel-email-auth.php', 'laravel-email-auth');
 
-        $this->loadRoutes();
-    }
-
-    /**
-     * Get the default package name.
-     *
-     * @return string
-     */
-    public function getPackageName(): string
-    {
-        return 'email-authenticate';
+        $this->loadRoutesFrom(__DIR__.'/../routes/web.php');
     }
 }
