@@ -10,6 +10,6 @@
  */
 
 Route::get(config('laravel-email-authenticate.route.uri'), [
-    'as'   => config('laravel-email-authenticate.route.as'),
+    'as' => config('laravel-email-authenticate.route.as'),
     'uses' => config('laravel-email-authenticate.route.uses'),
 ]);
