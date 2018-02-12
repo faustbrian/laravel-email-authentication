@@ -14,13 +14,13 @@ declare(strict_types=1);
 namespace BrianFaust\EmailAuth\Http\Controllers;
 
 use Auth;
-use Mail;
-use Validator;
-use Illuminate\Routing\Controller;
 use BrianFaust\EmailAuth\EmailLogin;
-use Illuminate\Foundation\Auth\ThrottlesLogins;
 use BrianFaust\EmailAuth\Http\Requests\EmailLoginRequest;
 use Illuminate\Foundation\Auth\AuthenticatesAndRegistersUsers;
+use Illuminate\Foundation\Auth\ThrottlesLogins;
+use Illuminate\Routing\Controller;
+use Mail;
+use Validator;
 
 class MailAuthController extends Controller
 {
