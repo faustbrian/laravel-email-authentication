@@ -1,12 +1,12 @@
 {
-    "name": "faustbrian/laravel-email-authentication",
+    "name": "artisanry/email-authentication",
     "description": "A password-less authentication system for Laravel",
-    "keywords": ["laravel", "framework", "Laravel-Email-Authentication", "Laravel E-Mail Authentication", "Brian Faust", "faustbrian"],
+    "keywords": ["laravel", "framework", "Laravel-Email-Authentication", "Laravel E-Mail Authentication"],
     "license": "MIT",
     "authors": [{
         "name": "Brian Faust",
-        "email": "hello@brianfaust.me",
-        "homepage": "https://brianfaust.me"
+        "email": "hello@basecode.sh",
+        "homepage": "https://basecode.sh"
     }],
     "require": {
         "php": "^7.1"
@@ -18,12 +18,12 @@
     },
     "autoload": {
         "psr-4": {
-            "BrianFaust\\EmailAuth\\": "src"
+            "Artisanry\\EmailAuth\\": "src"
         }
     },
     "autoload-dev": {
         "psr-4": {
-            "BrianFaust\\Tests\\EmailAuth\\": "tests"
+            "Artisanry\\Tests\\EmailAuth\\": "tests"
         }
     },
     "config": {
@@ -36,7 +36,7 @@
         },
         "laravel": {
             "providers": [
-                "BrianFaust\\EmailAuth\\EmailAuthServiceProvider"
+                "Artisanry\\EmailAuth\\EmailAuthServiceProvider"
             ]
         }
     },
