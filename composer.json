@@ -1,15 +1,22 @@
 {
     "name": "artisanry/email-authentication",
     "description": "A password-less authentication system for Laravel",
-    "keywords": ["laravel", "framework", "Laravel-Email-Authentication", "Laravel E-Mail Authentication"],
+    "keywords": [
+        "laravel",
+        "framework",
+        "Laravel-Email-Authentication",
+        "Laravel E-Mail Authentication"
+    ],
     "license": "MIT",
-    "authors": [{
-        "name": "Brian Faust",
-        "email": "hello@basecode.sh",
-        "homepage": "https://basecode.sh"
-    }],
+    "authors": [
+        {
+            "name": "Brian Faust",
+            "email": "hello@basecode.sh",
+            "homepage": "https://basecode.sh"
+        }
+    ],
     "require": {
-        "php": "^7.1"
+        "php": "^7.2"
     },
     "require-dev": {
         "graham-campbell/testbench": "^5.0",
