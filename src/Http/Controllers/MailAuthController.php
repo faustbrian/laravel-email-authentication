@@ -13,9 +13,9 @@ declare(strict_types=1);
 
 namespace Artisanry\EmailAuth\Http\Controllers;
 
-use Auth;
 use Artisanry\EmailAuth\EmailLogin;
 use Artisanry\EmailAuth\Http\Requests\EmailLoginRequest;
+use Auth;
 use Illuminate\Foundation\Auth\AuthenticatesAndRegistersUsers;
 use Illuminate\Foundation\Auth\ThrottlesLogins;
 use Illuminate\Routing\Controller;
